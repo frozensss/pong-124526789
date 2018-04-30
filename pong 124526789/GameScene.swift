@@ -9,6 +9,15 @@
 import SpriteKit
 import GameplayKit
 
+let ballCategory:UInt32 = 0x1 << 0
+let paddleCategory:UInt32 = 0x2 << 1
+let leftCategory:UInt32 = 0x2 << 2
+let rightCategory:UInt32 = 0x3 << 3
+let bottomCategory:UInt32 = 0x4 << 4
+let topCategory:UInt32 = 0x5 << 5
+
+
+
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var topPaddle = SKSpriteNode()
@@ -18,6 +27,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     override func didMove(to view: SKView) {
+        
         physicsWorld.contactDelegate = self
         
         topPaddle = self.childNode(withName: "topPaddle") as! SKSpriteNode
